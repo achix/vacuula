@@ -17,7 +17,7 @@ def chk_autovacuum_global(constr):
     finally:
         conn.close()
 
-def process_res(csvfilename,constr, sqlqry, minsize, min_age_overdue):
+def alter_for_boost(csvfilename,constr, sqlqry, minsize, min_age_overdue):
     conn = psycopg2.connect(constr)
     conn.set_session(autocommit=False)
     
@@ -161,7 +161,7 @@ def main(args):
     csvfilename = setup(mode)
     chk_autovacuum_global(conn_str)
     if (mode == "boost"):
-        process_res(csvfilename, conn_str, sqlqrystr,min_size, min_age_overdue)
+        alter_for_boost(csvfilename, conn_str, sqlqrystr,min_size, min_age_overdue)
     elif (mode == "restore"):
         restore(csvfilename, conn_str)
     else:
