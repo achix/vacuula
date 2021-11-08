@@ -1,8 +1,8 @@
-.idea/.gitignore
-.idea/inspectionProfiles/profiles_settings.xml
 .idea/misc.xml
+.idea/inspectionProfiles/profiles_settings.xml
 .idea/modules.xml
 .idea/vacuula.iml
 .idea/vcs.xml
 .idea/vacuula.iml
 res/__pycache__/
+.idea/.gitignore
