@@ -66,8 +66,8 @@ def alter_for_boost(csvfilename,constr, sqlqry, minsize, min_age_overdue):
                 mainrel = record[3]
                 autovacuum_freeze_max_age__effective = record[12] # == autovacuum_freeze_max_age__pertable_global 
                 vacuum_freeze_table_age__effective = record[13]
-                autovacuum_freeze_max_age__target = max(autovacuum_freeze_max_age__effective/2, 100000) 
-                vacuum_freeze_table_age__target = vacuum_freeze_table_age__effective/2 
+                autovacuum_freeze_max_age__target = int(max(autovacuum_freeze_max_age__effective/2, 100000))
+                vacuum_freeze_table_age__target = int(vacuum_freeze_table_age__effective/2)
                 if (relkind in ['r','m']):
                     curs.execute("ALTER TABLE "+fullname+" SET (autovacuum_freeze_max_age=%s)",(autovacuum_freeze_max_age__target,))
                     curs.execute("ALTER TABLE "+fullname+" SET (autovacuum_freeze_table_age=%s)",(vacuum_freeze_table_age__target,))
